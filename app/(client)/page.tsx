@@ -8,7 +8,7 @@ import { Key } from "react"
 
 export default async function Homepage() {
 
-  const plans: PlanInterface[] = await client.fetch(PLANS_QUERY)
+  const plans: PlanInterface[] = await client.fetch(PLANS_QUERY);
 
   // console.log(plans)
 

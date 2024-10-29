@@ -1,14 +1,16 @@
+import { Slug } from "@/sanity/types";
+
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 export interface PlanInterface {
-    name: string;         // Product name
+    _id: string;
+    name: string
     slug: { current: string }     // Slug for the product
-    description: string;  // Description of the product
+    description: string // Description of the product
     category: Array<CategoryInterface>;  // Category of the product
-    _id: string;     // ID of the product
-    price: number;        // Price of the product
-    rating: number;       // Rating of the product (0-5)
-    numReview: number;    // Number of reviews for the product
-    createdAt: string;    // Creation date (ISO string)
+    // ID of the product
+    price: number         // Price of the product
+    rating: number        // Rating of the product (0-5)
+    createdAt: string  // Category of the product
     images: Array<{       // Array of images
         _key?: string;      // Optional key for Sanity
         _type: 'image';     // Type of the image
@@ -16,7 +18,7 @@ export interface PlanInterface {
             _id: string;      // ID of the asset
             url: string;      // URL of the image
         };
-    }>;
+    }>
     body: Array<{         // Rich text body
         _key?: string;      // Optional key for Sanity
         _type: 'block';     // Type of the block
@@ -29,7 +31,7 @@ export interface PlanInterface {
         markDefs?: Array<{}>; // Optional array for mark definitions
         style?: string;      // Style of the block (e.g., normal, h1, h2)
         level?: number;      // Level of the heading (if applicable)
-    }>;
+    }>
 }
 
 export interface EbookInterface {
@@ -83,14 +85,15 @@ export interface CategoryInterface {
 
 
 export interface VideoInterface {
-    name: string;         // Product name
-    slug: { current: string }     // Slug for the product
-    description: string;  // Description of the product
+    _id: string;
+    name: string
+    slug: Slug
+    description: string // Description of the product
     category: Array<CategoryInterface>;  // Category of the product
-    _id: string;     // ID of the product
-    price: number;        // Price of the product
-    rating: number;       // Rating of the product (0-5)
-    createdAt: string;    // Creation date (ISO string)
+    // ID of the product
+    price: number         // Price of the product
+    rating: number        // Rating of the product (0-5)
+    createdAt: string     // Creation date (ISO string)
     images: Array<{       // Array of images
         _key?: string;      // Optional key for Sanity
         _type: 'image';     // Type of the image
@@ -98,7 +101,7 @@ export interface VideoInterface {
             _id: string;      // ID of the asset
             url: string;      // URL of the image
         };
-    }>;
+    }>
     body: Array<{         // Rich text body
         _key?: string;      // Optional key for Sanity
         _type: 'block';     // Type of the block
@@ -111,5 +114,5 @@ export interface VideoInterface {
         markDefs?: Array<{}>; // Optional array for mark definitions
         style?: string;      // Style of the block (e.g., normal, h1, h2)
         level?: number;      // Level of the heading (if applicable)
-    }>;
+    }>
 }
