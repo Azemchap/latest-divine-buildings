@@ -359,3 +359,71 @@ export type Slug = {
 
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | Geopoint | Video | PersonalInfo | Category | Ebook | SanityFileAsset | Plan | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: lib/queries.ts
+// Variable: PLANS_QUERY
+// Query: *[_type == "plan" && defined(slug.current)] | order(createdAt desc) {    _id,    name,    slug,    description,    category[]->{    _id,    slug,    name    },    price,    rating,    numReview,    createdAt,    images,    body,}
+export type PLANS_QUERYResult = Array<{
+  _id: string;
+  name: string | null;
+  slug: Slug | null;
+  description: string | null;
+  category: Array<{
+    _id: string;
+    slug: Slug | null;
+    name: string | null;
+  }> | null;
+  price: number | null;
+  rating: number | null;
+  numReview: number | null;
+  createdAt: string | null;
+  images: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }> | null;
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }> | null;
+}>;
+
+// Query TypeMap
+import "@sanity/client";
+declare module "@sanity/client" {
+  interface SanityQueries {
+    "*[_type == \"plan\" && defined(slug.current)] | order(createdAt desc) {\n    _id,\n    name,\n    slug,\n    description,\n    category[]->{\n    _id,\n    slug,\n    name\n    },\n    price,\n    rating,\n    numReview,\n    createdAt,\n    images,\n    body,\n}": PLANS_QUERYResult;
+  }
+}

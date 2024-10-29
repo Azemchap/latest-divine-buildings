@@ -14,11 +14,6 @@ import { Phone } from 'lucide-react'
 import { PlanInterface } from '@/lib/interface'
 import { FaWhatsapp } from 'react-icons/fa6'
 
-interface Params {
-  params: {
-    slug: string
-  }
-}
 
 async function getPlan(slug: string) {
   const query =
@@ -46,9 +41,11 @@ async function getPlan(slug: string) {
 
 export const revalidate = 60;
 
-export default async function PlanDetailsPage({ params }: Params) {
-  const plan: PlanInterface = await getPlan(params?.slug)
-  // console.log(plan)
+export default async function PlanDetailsPage({ params }: { params: Promise<{ slug: string }> }) {
+
+  const slug = (await params).slug
+
+  const plan: PlanInterface = await getPlan(slug)
 
   if (!plan) {
     return <ItemNotFound title='Plan not found' />

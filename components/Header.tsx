@@ -1,12 +1,7 @@
 
 import {
-    BarChart,
-    LayoutDashboard,
-    ListOrdered,
     Menu,
-    Package2,
-    Store,
-    User
+    Package2
 } from "lucide-react"
 
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
@@ -34,13 +29,13 @@ export function Header() {
                         </Button>
                     </SheetTrigger>
                     <SheetContent side="left">
-                        <nav className="grid gap-8 text-sm font-medium">
+                        <nav className="grid gap-4 text-sm font-medium">
                             <NavLink path="/" text="Divine Buildings" icon={<Package2 className="h-6 w-6" />} className="font-extrabold" />
-                            <NavLink path="/dashboard" text="Dashboard" icon={<LayoutDashboard />} />
-                            <NavLink path="/products" text="Products" icon={<Store />} />
-                            <NavLink path="/customers" text="Customers" icon={<User />} />
-                            <NavLink path="/orders" text="Orders" icon={<ListOrdered />} />
-                            <NavLink path="/analytics" text="Analytics" icon={<BarChart />} />
+                            <NavLink path="/category/bungalow" text="Bungalow" />
+                            <NavLink path="/category/duplex" text="Duplex" />
+                            <NavLink path="/category/condor" text="Condor" />
+                            <NavLink path="/category/villa" text="Villa" />
+                            <NavLink path="/category/e-Books" text="e-Books" />
                         </nav>
                     </SheetContent>
                 </Sheet>
@@ -49,13 +44,13 @@ export function Header() {
                 <NavLink path="/" text="Divine Buildings" icon={<Package2 className="h-6 w-6" />} className="font-extrabold mr-auto" />
 
                 {/* Desktop Menu  */}
-                <nav className="hidden font-medium md:flex md:flex-row md:items-center md:gap-6 md:text-sm lg:gap-8">
+                <nav className="hidden font-medium md:flex md:flex-row md:items-center  md:text-sm gap-4">
                     <div className="hidden lg:inline-flex items-center gap-8">
-                        <NavLink path="/dashboard" text="Dashboard" icon={<LayoutDashboard />} />
-                        <NavLink path="/products" text="Products" icon={<Store />} />
-                        <NavLink path="/customers" text="Customers" icon={<User />} />
-                        <NavLink path="/orders" text="Orders" icon={<ListOrdered />} />
-                        <NavLink path="/analytics" text="Analytics" icon={<BarChart />} />
+                        <NavLink path="/category/bungalow" text="Bungalow" />
+                        <NavLink path="/category/duplex" text="Duplex" />
+                        <NavLink path="/category/condor" text="Condor" />
+                        <NavLink path="/category/villa" text="Villa" />
+                        <NavLink path="/category/e-Books" text="e-Books" />
                     </div>
                 </nav>
 

@@ -6,7 +6,10 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview" : "npm run typegen",
+    "prevbuild" : "npm run typegen",
+    "typegen" : "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
