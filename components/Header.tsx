@@ -4,11 +4,11 @@ import {
     Package2
 } from "lucide-react"
 
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import NavLink from "./NavLink"
 
-import { Button } from "@/components/ui/button"
 import { ModeToggle } from "./ModeToggle"
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
+import { Button } from "./ui/button"
 
 
 export function Header() {
